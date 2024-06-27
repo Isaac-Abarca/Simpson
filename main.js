@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   calculateInitialIntegrals([3, 6, 12, 24, 48, 3072]);
+
+  document.getElementById('calculateButton').addEventListener('click', addSubintervals);
 });
 
 function f(h) {
