@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  calculateIntegrals([3, 6, 12, 24, 48, 3072]);
+  calculateInitialIntegrals([3, 6, 12, 24, 48, 3072]);
 });
 
 function f(h) {
@@ -50,13 +50,11 @@ function addSubintervals() {
   calculateIntegrals([subintervals]);
 }
 
-function calculateIntegrals(subintervals) {
+function calculateInitialIntegrals(subintervals) {
   const a = 1;
   const b = 2;
   const tableSimpson13Body = document.querySelector('#tableSimpson13 tbody');
   const tableSimpson38Body = document.querySelector('#tableSimpson38 tbody');
-  tableSimpson13Body.innerHTML = '';
-  tableSimpson38Body.innerHTML = '';
 
   subintervals.forEach(n => {
     try {
@@ -82,4 +80,36 @@ function calculateIntegrals(subintervals) {
     }
   });
 }
+
+function calculateIntegrals(subintervals) {
+  const a = 1;
+  const b = 2;
+  const tableSimpson13Body = document.querySelector('#tableSimpson13 tbody');
+  const tableSimpson38Body = document.querySelector('#tableSimpson38 tbody');
+
+  subintervals.forEach(n => {
+    try {
+      const resultSimpson13 = compositeSimpson13(a, b, n);
+      const resultRow = document.createElement('tr');
+      resultRow.innerHTML = `<td>${n}</td><td>${resultSimpson13}</td>`;
+      tableSimpson13Body.insertBefore(resultRow, tableSimpson13Body.firstChild);
+    } catch (error) {
+      const errorRow = document.createElement('tr');
+      errorRow.innerHTML = `<td>${n}</td><td>${error.message}</td>`;
+      tableSimpson13Body.insertBefore(errorRow, tableSimpson13Body.firstChild);
+    }
+
+    try {
+      const resultSimpson38 = compositeSimpson38(a, b, n);
+      const resultRow = document.createElement('tr');
+      resultRow.innerHTML = `<td>${n}</td><td>${resultSimpson38}</td>`;
+      tableSimpson38Body.insertBefore(resultRow, tableSimpson38Body.firstChild);
+    } catch (error) {
+      const errorRow = document.createElement('tr');
+      errorRow.innerHTML = `<td>${n}</td><td>${error.message}</td>`;
+      tableSimpson38Body.insertBefore(errorRow, tableSimpson38Body.firstChild);
+    }
+  });
+}
+
 
