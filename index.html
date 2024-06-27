@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo de Integrales</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+  <header class="bg-success text-white text-center py-3">
+    <h1>Cálculo de Integrales usando Reglas de Simpson</h1>
+  </header>
+  <main class="container mt-4">
+    <div class="integral text-center">
+      <p>$$\int_{1}^{2} \frac{h^3}{1 + h^{1/2}} \, dh$$</p>
+    </div>
+    <div class="input-container text-center mb-4">
+      <input type="text" id="subintervalsInput" class="form-control d-inline-block w-auto" placeholder="Ingrese la cantidad de subintervalos">
+      <button onclick="addSubintervals()" class="btn btn-success">Calcular Integrales</button>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="simpson13-tab" data-toggle="tab" href="#simpson13" role="tab" aria-controls="simpson13" aria-selected="true">Regla de Simpson 1/3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="simpson38-tab" data-toggle="tab" href="#simpson38" role="tab" aria-controls="simpson38" aria-selected="false">Regla de Simpson 3/8</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="simpson13" role="tabpanel" aria-labelledby="simpson13-tab">
+        <h2 class="mt-4">Resultados con la Regla de Simpson 1/3</h2>
+        <table class="table table-striped" id="tableSimpson13">
+          <thead>
+            <tr>
+              <th>Subintervalos</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="simpson38" role="tabpanel" aria-labelledby="simpson38-tab">
+        <h2 class="mt-4">Resultados con la Regla de Simpson 3/8</h2>
+        <table class="table table-striped" id="tableSimpson38">
+          <thead>
+            <tr>
+              <th>Subintervalos</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <footer class="text-center py-3">
+    <p>Todos los derechos reservados</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
